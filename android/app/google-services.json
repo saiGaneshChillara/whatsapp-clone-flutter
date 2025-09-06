@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "461890752965",
+    "project_id": "whatsapp-backend-3690c",
+    "storage_bucket": "whatsapp-backend-3690c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461890752965:android:b90c0f1bc8aa770b8d3bac",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABiU9Mb_cNKEqZFtERPp2UmghCFkafpJc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
