@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:myapp/common/widgets/error.dart';
 import 'package:myapp/features/auth/screens/login_screen.dart';
 import 'package:myapp/features/auth/screens/otp_screen.dart';
