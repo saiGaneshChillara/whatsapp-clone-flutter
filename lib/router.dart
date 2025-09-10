@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:myapp/common/widgets/error.dart';
+import 'package:myapp/features/auth/screens/login_screen.dart';
+import 'package:myapp/features/auth/screens/otp_screen.dart';
+import 'package:myapp/features/auth/screens/user_info_screen.dart';
+
+Route<dynamic> generateRoute(RouteSettings settings) {
+  switch (settings.name) {
+    case LoginScreen.routeName:
+      return MaterialPageRoute(builder: (context) => const LoginScreen());
+    case OtpScreen.routeName:
+      final verficationId = settings.arguments as String;
+      return MaterialPageRoute(
+        builder: (context) => OtpScreen(verificationId: verficationId),
+      );
+    case UserInfoScreen.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const UserInfoScreen(),
+      );
+    default:
+      return MaterialPageRoute(
+        builder: (context) => const Scaffold(
+          body: ErrorScreen(error: "This page does not exist"),
+        ),
+      );
+  }
+}
