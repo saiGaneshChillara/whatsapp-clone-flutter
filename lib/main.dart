@@ -1,7 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myapp/colors.dart';
+import 'package:myapp/features/landing/screens/landing_screen.dart';
 import 'package:myapp/firebase_options.dart';
+import 'package:myapp/router.dart';
 import 'package:myapp/screens/mobile_layout_screen.dart';
 import 'package:myapp/screens/web_layout_screen.dart';
 import 'package:myapp/utils/responsive_layout.dart';
@@ -11,7 +14,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform
   );
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -25,11 +32,17 @@ class MyApp extends StatelessWidget {
       title: "Whatsap UI",
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: appBarColor,
+        ),
       ),
-      home: const ResponsiveLayout(
-        mobileScreenLayout: MobileLayoutScreen(),
-        webScrenLayout: WebLayoutScreen(),
-      ),
+      onGenerateRoute: (settings) => generateRoute(settings),
+      home: const LandingScreen(),
     );
   }
 }
+
+// ResponsiveLayout(
+//         mobileScreenLayout: MobileLayoutScreen(),
+//         webScrenLayout: WebLayoutScreen(),
+//       ),
