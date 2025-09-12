@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/colors.dart';
+import 'package:myapp/features/select_contacts/screens/select_contacts_screen.dart';
 import 'package:myapp/widgets/contacts_list.dart';
 
 class MobileLayoutScreen extends StatelessWidget {
@@ -37,30 +38,21 @@ class MobileLayoutScreen extends StatelessWidget {
             indicatorWeight: 4,
             labelColor: tabColor,
             unselectedLabelColor: Colors.grey,
-            labelStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
+            labelStyle: TextStyle(fontWeight: FontWeight.bold),
             tabs: [
-              Tab(
-                text: "CHATS",
-              ),
-              Tab(
-                text: "STATUS",
-              ),
-              Tab(
-                text: "CALLS",
-              )
+              Tab(text: "CHATS"),
+              Tab(text: "STATUS"),
+              Tab(text: "CALLS"),
             ],
           ),
         ),
         body: const ContactsList(),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, SelectContactsScreen.routeName);
+          },
           backgroundColor: tabColor,
-          child: const Icon(
-            Icons.comment,
-            color: Colors.white,
-          ),
+          child: const Icon(Icons.comment, color: Colors.white),
         ),
       ),
     );

@@ -3,6 +3,8 @@ import 'package:myapp/common/widgets/error.dart';
 import 'package:myapp/features/auth/screens/login_screen.dart';
 import 'package:myapp/features/auth/screens/otp_screen.dart';
 import 'package:myapp/features/auth/screens/user_info_screen.dart';
+import 'package:myapp/features/select_contacts/screens/select_contacts_screen.dart';
+import 'package:myapp/screens/mobile_chat_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -14,8 +16,20 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         builder: (context) => OtpScreen(verificationId: verficationId),
       );
     case UserInfoScreen.routeName:
+      return MaterialPageRoute(builder: (context) => const UserInfoScreen());
+    case SelectContactsScreen.routeName:
       return MaterialPageRoute(
-        builder: (context) => const UserInfoScreen(),
+        builder: (context) => SelectContactsScreen(),
+      );
+    case MobileChatScreen.routeName:
+      final arguments = settings.arguments as Map<String, dynamic>;
+      final name = arguments['name'];
+      final uid = arguments['uid'];
+      return MaterialPageRoute(
+        builder: (context) => MobileChatScreen(
+          name: name,
+          uid: uid,
+        ),
       );
     default:
       return MaterialPageRoute(
